@@ -44,7 +44,7 @@ int main() {
 
 //===========================resultados========================================
      printf("estado1: %s\n", estado1);
-    printf("cidade1: %s\n", cidade1);
+    printf("cidade: %s\n", cidade1);
     printf("populacao: %d\n", populacao1);
     printf("area: %.2f\n", area1);
     printf("pib: %.2f\n", pib1);
