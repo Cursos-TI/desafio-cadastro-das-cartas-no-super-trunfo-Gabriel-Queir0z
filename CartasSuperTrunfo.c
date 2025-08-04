@@ -3,7 +3,8 @@ int main() {
     // Variáveis x2 população, área, PIB, número de pontos turísticos.
 
     int populacao1, populacao2, pontosturisticos1, pontosturisticos2;
-    float area1, pib1, area2, pib2, densidade1, densidade2, pibpercapta1, pibpercapita2; 
+    float area1, pib1, area2, pib2, densidade1, densidade2, pibpercapta1, pibpercapita2, geral1, geral2; 
+    float densidadeinvertida1, densidadeinvertida2;
     char cidade1 [50];
     char cidade2 [50];
     char estado1 [50];
@@ -41,20 +42,25 @@ int main() {
     densidade2 = populacao2 / area2;
     pibpercapta1 = pib1 / populacao1;
     pibpercapita2 = pib2 / populacao2; 
+    densidadeinvertida1 = 1 / densidade1;
+    densidadeinvertida2 = 1 / densidade2;
+    geral1 = populacao1 + area1 + pib1 + pontosturisticos1 + densidadeinvertida1 + pibpercapta1;
+    geral2 = populacao2 + area2 + pib2 + pontosturisticos2 + densidadeinvertida2 + pibpercapita2;
+        
+        
 
 //===========================resultados========================================
-     printf("estado1: %s\n", estado1);
-    printf("cidade: %s\n", cidade1);
+    printf("---------------------------------------------------\n");
+    printf("estado1: %s\n", estado1);
+    printf("cidade1: %s\n", cidade1);
     printf("populacao: %d\n", populacao1);
     printf("area: %.2f\n", area1);
     printf("pib: %.2f\n", pib1);
     printf("pontos turisticos: %d\n", pontosturisticos1);
     printf("densidade populacional: %.2f\n", densidade1);
     printf("pib per capita: %.2f\n", pibpercapta1);
-    
-
-
-     printf("estado2: %s\n", estado2);
+    printf("---------------------------------------------------\n");
+    printf("estado2: %s\n", estado2);
     printf("cidade: %s\n", cidade2);
     printf("populacao: %d\n", populacao2);
     printf("area: %.2f\n", area2);
@@ -62,9 +68,13 @@ int main() {
     printf("pontos turisticos: %d\n", pontosturisticos2);
     printf("densidade populacional: %.2f\n", densidade2);
     printf("pib per capita: %.2f\n", pibpercapita2);
-    
-    
-    
-
+    printf("---------------------------------------------------\n");
+//===========================final========================================
+    if (geral1 > geral2) {
+        printf("A cidade %s do estado %s e maior que a cidade %s do estado %s\n", cidade1, estado1, cidade2, estado2);
+    } else if (geral1 < geral2) {
+        printf("A cidade %s do estado %s e menor que a cidade %s do estado %s\n", cidade1, estado1, cidade2, estado2);
+    } else {
+        printf("As cidades %s do estado %s e %s do estado %s sao iguais\n", cidade1, estado1, cidade2, estado2);
     return 0;
 }
