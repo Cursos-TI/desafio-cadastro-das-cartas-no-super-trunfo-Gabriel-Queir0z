@@ -33,7 +33,6 @@ scanf("%f", &pib2);
 printf("quantos pontos turisticos esta segunda cidade tem?: ");
 scanf("%d", &pontosturisticos2);
 
-
 printf ("qual atributo vc quer comparar? (1) Populacao (2) Area (3) PIB (4) Pontos turisticos (5) Densidade populacional (6) PIB per capita\n");
 scanf("%d", &escolha);
 //===========================calculos========================================
@@ -62,9 +61,9 @@ switch (escolha) {
         printf("Atributo escolhido: Area.\n");
         printf("A area de %s e: %.2f e da %s e: %.2f\n", cidade, area, cidade2, area2);
         if (area > area2) {
-            printf("A cidade %s tem uma area maior que a cidade %s.\n", cidade, cidade2);   
+            printf("A cidade %s venceu.\n", cidade);   
         } else if (area < area2) {
-            printf("A cidade %s tem uma area menor que a cidade %s.\n", cidade, cidade2);
+            printf("A cidade %s venceu.\n", cidade2);
         } else {
             printf("Empate");
         }
@@ -73,9 +72,9 @@ switch (escolha) {
         printf("Atributo escolhido: PIB.\n");
         printf("O PIB de %s e: %.2f e da %s e: %.2f\n", cidade, pib, cidade2, pib2);
         if (pib > pib2) {
-            printf("A cidade %s.\n", cidade);
+            printf("A cidade %s venceu.\n", cidade);
         } else if (pib < pib2) {
-            printf("A cidade %s .\n", cidade2);
+            printf("A cidade %s venceu.\n", cidade2);
         }  else {
             printf("Empate");
         }
@@ -117,6 +116,6 @@ switch (escolha) {
         printf("Opção inválida. Por favor, escolha um número de 1 a 6.\n");
         break;  
     }
+
 return 0;
 }
-
