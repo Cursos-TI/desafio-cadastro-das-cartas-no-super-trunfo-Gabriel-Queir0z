@@ -1,80 +1,122 @@
 #include <stdio.h>
 int main() {
-    // Variáveis x2 população, área, PIB, número de pontos turísticos.
+float area, pib, densidade, pibpercapta, populacao;
+int pontosturisticos;
+char  cidade[50];
 
-    int populacao1, populacao2, pontosturisticos1, pontosturisticos2;
-    float area1, pib1, area2, pib2, densidade1, densidade2, pibpercapta1, pibpercapita2, geral1, geral2; 
-    float densidadeinvertida1, densidadeinvertida2;
-    char cidade1 [50];
-    char cidade2 [50];
-    char estado1 [50];
-    char estado2 [50];
-    //===========================entrada 1========================================
-    printf("qual o nome da estado?: ");
-    scanf("%49s", estado1);
-    printf("qual o nome da cidade?: ");
-    scanf("%49s", cidade1);
-    printf("qual a populacao desta cidade?: ");
-    scanf("%d", &populacao1);
-    printf("qual a area desta cidade?: ");
-    scanf("%f", &area1);
-    printf("qual o pib desta cidade?: ");
-    scanf("%f", &pib1);
-    printf("quantos pontos turisticos esta cidade tem?: ");
-    scanf("%d", &pontosturisticos1);
-    //===========================entrada 2========================================
-    printf("qual o nome do estado2?: ");
-    scanf("%49s", estado2);
-    printf("qual o nome da cidade numero 2?: ");
-    scanf("%49s", cidade2);
-    printf("qual a populacao desta cidade?: ");
-    scanf("%d", &populacao2);
-    printf("qual a area desta cidade?: ");
-    scanf("%f", &area2);
-    printf("qual o pib desta cidade?: ");
-    scanf("%f", &pib2);
-    printf("quantos pontos turisticos esta cidade tem?: ");
-    scanf("%d", &pontosturisticos2);
+float area2,pib2, densidade2, pibpercapta2, populacao2;
+int pontosturisticos2;
+char cidade2[50];
+
+int escolha;
+
+//===========================entrada1========================================
+printf("qual o nome da cidade?: ");
+scanf("%49s", cidade);
+printf("qual a populacao desta cidade?: ");
+scanf("%f", &populacao);
+printf("qual a area desta cidade?: ");
+scanf("%f", &area);
+printf("qual o pib desta cidade?: ");
+scanf("%f", &pib);
+printf("quantos pontos turisticos esta cidade tem?: ");
+scanf("%d", &pontosturisticos);
+//===========================entrada2========================================
+printf("qual o nome da segunda cidade?: "); 
+scanf("%49s", cidade2);
+printf("qual a populacao desta segunda cidade?: ");
+scanf("%f", &populacao2); 
+printf("qual a area desta segunda cidade?: ");
+scanf("%f", &area2);
+printf("qual o pib desta segunda cidade?: ");
+scanf("%f", &pib2);
+printf("quantos pontos turisticos esta segunda cidade tem?: ");
+scanf("%d", &pontosturisticos2);
 
 
-    //===========================calculos========================================
-    densidade1 = populacao1 / area1;
-    densidade2 = populacao2 / area2;
-    pibpercapta1 = pib1 / populacao1;
-    pibpercapita2 = pib2 / populacao2; 
-    densidadeinvertida1 = 1 / densidade1;
-    densidadeinvertida2 = 1 / densidade2;
-    geral1 = populacao1 + area1 + pib1 + pontosturisticos1 + densidadeinvertida1 + pibpercapta1;
-    geral2 = populacao2 + area2 + pib2 + pontosturisticos2 + densidadeinvertida2 + pibpercapita2;
-        
-        
-
-//===========================resultados========================================
-    printf("---------------------------------------------------\n");
-    printf("estado1: %s\n", estado1);
-    printf("cidade1: %s\n", cidade1);
-    printf("populacao: %d\n", populacao1);
-    printf("area: %.2f\n", area1);
-    printf("pib: %.2f\n", pib1);
-    printf("pontos turisticos: %d\n", pontosturisticos1);
-    printf("densidade populacional: %.2f\n", densidade1);
-    printf("pib per capita: %.2f\n", pibpercapta1);
-    printf("---------------------------------------------------\n");
-    printf("estado2: %s\n", estado2);
-    printf("cidade: %s\n", cidade2);
-    printf("populacao: %d\n", populacao2);
-    printf("area: %.2f\n", area2);
-    printf("pib: %.2f\n", pib2);
-    printf("pontos turisticos: %d\n", pontosturisticos2);
-    printf("densidade populacional: %.2f\n", densidade2);
-    printf("pib per capita: %.2f\n", pibpercapita2);
-    printf("---------------------------------------------------\n");
-//===========================final========================================
-    if (geral1 > geral2) {
-        printf("A cidade %s do estado %s e maior que a cidade %s do estado %s\n", cidade1, estado1, cidade2, estado2);
-    } else if (geral1 < geral2) {
-        printf("A cidade %s do estado %s e menor que a cidade %s do estado %s\n", cidade1, estado1, cidade2, estado2);
-    } else {
-        printf("As cidades %s do estado %s e %s do estado %s sao iguais\n", cidade1, estado1, cidade2, estado2);
-    return 0;
+printf ("qual atributo vc quer comparar? (1) Populacao (2) Area (3) PIB (4) Pontos turisticos (5) Densidade populacional (6) PIB per capita\n");
+scanf("%d", &escolha);
+//===========================calculos========================================
+densidade = populacao / area;
+densidade2 = populacao2 / area2;
+pibpercapta = pib / populacao;
+pibpercapta2 = pib2 / populacao2;
+//===========================saída========================================
+printf("---------------------------------------------------\n");
+printf("---------------------------------------------------\n");
+printf("Comparando %s com %s:\n", cidade, cidade2);
+printf("---------------------------------------------------\n");
+switch (escolha) {
+    case 1:
+        printf("Atributo escolhido: População.\n");
+        printf("populacao de %s é: %f e da %s e: %f\n", cidade, populacao, cidade2, populacao2);
+        if (populacao > populacao2) {
+            printf("A cidade %s venceu.\n", cidade);
+        } else if (populacao < populacao2) {
+            printf("A cidade %s venceu.\n", cidade2);
+        }
+        else {printf("Empate");
+        }
+        break;
+    case 2:
+        printf("Atributo escolhido: Area.\n");
+        printf("A area de %s e: %.2f e da %s e: %.2f\n", cidade, area, cidade2, area2);
+        if (area > area2) {
+            printf("A cidade %s tem uma area maior que a cidade %s.\n", cidade, cidade2);   
+        } else if (area < area2) {
+            printf("A cidade %s tem uma area menor que a cidade %s.\n", cidade, cidade2);
+        } else {
+            printf("Empate");
+        }
+        break;
+    case 3:
+        printf("Atributo escolhido: PIB.\n");
+        printf("O PIB de %s e: %.2f e da %s e: %.2f\n", cidade, pib, cidade2, pib2);
+        if (pib > pib2) {
+            printf("A cidade %s.\n", cidade);
+        } else if (pib < pib2) {
+            printf("A cidade %s .\n", cidade2);
+        }  else {
+            printf("Empate");
+        }
+        break;
+    case 4:
+        printf("Atributo escolhido: Pontos turísticos.\n");
+        printf("A cidade %s tem %d pontos turisticos e a cidade %s tem %d pontos turisticos.\n", cidade, pontosturisticos, cidade2, pontosturisticos2);
+        if (pontosturisticos > pontosturisticos2) {
+            printf("A cidade %s venceu.\n", cidade);
+        } else if (pontosturisticos < pontosturisticos2) {
+            printf("A cidade %s venceu.\n", cidade2);
+        } else {
+            printf("Empate");
+        }
+        break;
+    case 5:
+        printf("Atributo escolhido: Densidade populacional.\n");
+        printf("A densidade populacional de %s e: %.2f e da %s e: %.2f\n", cidade, densidade, cidade2, densidade2);
+        if (densidade > densidade2) {
+            printf("A cidade %s venceu.\n", cidade2);
+        } else if (densidade < densidade2) {
+            printf("A cidade %s venceu.\n", cidade);
+        }   else {
+            printf("Empate");
+        }
+        break;
+    case 6:
+        printf("Atributo escolhido: PIB per capita.\n");
+        printf("O PIB per capita de %s e: %.2f e da %s e: %.2f\n", cidade, pibpercapta, cidade2, pibpercapta2);
+        if (pibpercapta > pibpercapta2) {
+            printf("A cidade %s venceu.\n", cidade);  
+        } else if (pibpercapta < pibpercapta2) {
+            printf("A cidade %s tvenceu.\n", cidade2);
+        }   else { 
+            printf("Empate");
+        }
+        break;
+    default:
+        printf("Opção inválida. Por favor, escolha um número de 1 a 6.\n");
+        break;  
+    }
+return 0;
 }
+
